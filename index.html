@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domen sotiladi · Домен продаётся · Domain for sale</title>
+<meta name="description" content="Bu domen sotiladi. Domain for sale. Домен продаётся. Aloqa / Contact / Связь: DIYOR, +998 50 444 00 88, Telegram @diyor_okasi">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Domen sotiladi · Domain for sale · Домен продаётся">
+<meta property="og:description" content="Aloqa: +998 50 444 00 88, Telegram @diyor_okasi">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Domain for sale","description":"Domen sotiladi. Domain for sale. Домен продаётся.","contactPoint":{"@type":"ContactPoint","name":"Diyor","telephone":"+998504440088","contactType":"sales","availableLanguage":["uz","ru","en"]}}
+</script>
+<style>
+:root{--bg:#eef2f6;--ink:#14213d;--mute:#4a5872;--acc:#d63d1f;--card:#fff;--line:#c9d3e0}
+@media (prefers-color-scheme:dark){:root:not([data-t="l"]){--bg:#101a2e;--ink:#eaf0fa;--mute:#9fb0cb;--acc:#ff7a59;--card:#182541;--line:#2b3b5c}}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;display:flex;flex-direction:column;min-height:100%}
+.top{display:flex;justify-content:flex-end;gap:6px;padding:16px 20px}
+.top button{font:inherit;font-size:14px;font-weight:600;padding:6px 12px;border:1px solid var(--line);background:transparent;color:var(--mute);border-radius:8px;cursor:pointer}
+.top button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:860px;width:100%;margin:0 auto;padding:16px 24px 48px}
+.status{font-size:18px;color:var(--acc);font-weight:700;margin:0 0 8px}
+h1{font-size:clamp(34px,9vw,84px);line-height:1.02;letter-spacing:-.03em;margin:0 0 24px;word-break:break-all;font-weight:800}
+.lead{font-size:18px;color:var(--mute);max-width:52ch;margin:0 0 32px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;max-width:460px}
+.card h2{font-size:15px;margin:0 0 4px;color:var(--mute);font-weight:600}
+.name{font-size:24px;font-weight:800;margin:0 0 16px}
+.card a{display:block;padding:12px 14px;margin-top:8px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;font-weight:700}
+.card a small{display:block;font-weight:500;color:var(--mute);font-size:13px}
+.card a:hover,.card a:focus-visible{border-color:var(--acc);outline:2px solid var(--acc);outline-offset:2px}
+.card a.p{background:var(--acc);border-color:var(--acc);color:#fff}
+.card a.p small{color:#fff;opacity:.85}
+footer{padding:16px 24px;text-align:center;font-size:13px;color:var(--mute)}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Language">
+<button data-l="uz">O'zbekcha</button><button data-l="ru">Русский</button><button data-l="en">English</button>
+</nav>
+<main>
+<p class="status" data-i="status"></p>
+<h1 id="dom">domain</h1>
+<p class="lead" data-i="lead"></p>
+<section class="card">
+<h2 data-i="contact"></h2>
+<p class="name">Diyor</p>
+<a class="p" href="tel:+998504440088"><span data-i="call"></span><small>+998 50 444 00 88</small></a>
+<a href="https://t.me/diyor_okasi" rel="noopener"><span data-i="tg"></span><small>@diyor_okasi</small></a>
+</section>
+</main>
+<footer data-i="price"></footer>
+<script>
+var T={
+uz:{status:"Bu domen sotiladi",lead:"Ushbu domen nomi sotuvda. Xarid qilish yoki savollar uchun egasi bilan bog'laning.",contact:"Domen egasi",call:"Qo'ng'iroq qilish",tg:"Telegram orqali yozish",price:"Narxi aloqa vaqtida kelishiladi.",t:"Domen sotiladi"},
+ru:{status:"Этот домен продаётся",lead:"Это доменное имя выставлено на продажу. Свяжитесь с владельцем, чтобы купить или задать вопросы.",contact:"Владелец домена",call:"Позвонить",tg:"Написать в Telegram",price:"Цена обсуждается при связи.",t:"Домен продаётся"},
+en:{status:"This domain is for sale",lead:"This domain name is available for purchase. Contact the owner to buy it or ask a question.",contact:"Domain owner",call:"Call now",tg:"Message on Telegram",price:"Price is discussed when you get in touch.",t:"Domain for sale"}
+};
+var host=(location.hostname||"").replace(/^www\./,"")||"yourdomain.com";
+document.getElementById("dom").textContent=host;
+function setL(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=T[l][e.dataset.i]});
+  document.querySelectorAll(".top button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+  document.title=host+" — "+T[l].t;
+  try{localStorage.setItem("l",l)}catch(e){}
+}
+document.querySelectorAll(".top button").forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
+var s=null;try{s=localStorage.getItem("l")}catch(e){}
+var n=(navigator.language||"uz").slice(0,2);
+setL(s&&T[s]?s:(T[n]?n:"uz"));
+</script>
+</body>
+</html>
